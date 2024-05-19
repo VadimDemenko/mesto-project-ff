@@ -13,7 +13,7 @@ const nameInput = profileForm.querySelector('.popup__input_type_name');
 const jobInput = profileForm.querySelector('.popup__input_type_description');
 const profileAddButton = document.querySelector('.profile__add-button');
 const popupAddNewCard = document.querySelector('.popup_type_new-card');
-const addNewCardForm = popupAddNewCard.querySelector(".popup__form");
+const addNewCardForm = popupAddNewCard.querySelector('.popup__form');
 const cardNameInput = addNewCardForm.querySelector('.popup__input_type_card-name');
 const cardLinkInput = addNewCardForm.querySelector('.popup__input_type_url');
 const imagePopup = document.querySelector('.popup_type_image');
@@ -49,13 +49,13 @@ function outputCards(cards, openPopup) {
 
 outputCards(initialCards, openImagePopup);
 
-buttonEditProfile.addEventListener("click", () => {
+buttonEditProfile.addEventListener('click', () => {
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
     openPopup(popupProfileEdit);
 })
 
-profileAddButton.addEventListener("click", () => { 
+profileAddButton.addEventListener('click', () => { 
     addNewCardForm.reset();
     openPopup(popupAddNewCard);
 });
