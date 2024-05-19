@@ -11,14 +11,14 @@ const popupProfileEdit = document.querySelector('.popup_type_edit');
 const profileForm = popupProfileEdit.querySelector('.popup__form');
 const nameInput = profileForm.querySelector('.popup__input_type_name');
 const jobInput = profileForm.querySelector('.popup__input_type_description');
+const imagePopup = document.querySelector('.popup_type_image');
+const popupImage = imagePopup.querySelector('.popup__image');
+const popupCaption = imagePopup.querySelector('.popup__caption');
 const profileAddButton = document.querySelector('.profile__add-button');
 const popupAddNewCard = document.querySelector('.popup_type_new-card');
 const addNewCardForm = popupAddNewCard.querySelector('.popup__form');
 const cardNameInput = addNewCardForm.querySelector('.popup__input_type_card-name');
 const cardLinkInput = addNewCardForm.querySelector('.popup__input_type_url');
-const imagePopup = document.querySelector('.popup_type_image');
-const popupImage = imagePopup.querySelector('.popup__image');
-const popupCaption = imagePopup.querySelector('.popup__caption');
 
 
 function popupCloseListener(modalWindow) {
