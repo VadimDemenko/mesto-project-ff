@@ -21,17 +21,14 @@ const cardNameInput = addNewCardForm.querySelector('.popup__input_type_card-name
 const cardLinkInput = addNewCardForm.querySelector('.popup__input_type_url');
 
 
-function popupCloseListener(modalWindow) {
+function setPopupCloseListener(modalWindow) {
     const popupCloseButton = modalWindow.querySelector('.popup__close');
     popupCloseButton.addEventListener('click', () => closePopup(modalWindow));
 }
 
 document.querySelectorAll('.popup').forEach(popup => {
-    popupCloseListener(popup)
-})
-
-document.querySelectorAll('.popup').forEach(popup => {
     popup.classList.add('popup_is-animated');
+    setPopupCloseListener(popup);
 });
 
 function openImagePopup(evt) {
@@ -41,13 +38,13 @@ function openImagePopup(evt) {
     popupCaption.textContent = evt.name;
 }
 
-function outputCards(cards, openPopup) {
+function outputCards(cards) {
     cards.forEach((item) => {
-      cardsContainer.append(createCard(item, deleteCard, likeCard, openPopup));
+      cardsContainer.append(createCard(item, deleteCard, likeCard, openImagePopup,));
     });
   }
 
-outputCards(initialCards, openImagePopup);
+outputCards(initialCards);
 
 buttonEditProfile.addEventListener('click', () => {
     nameInput.value = profileName.textContent;
@@ -56,27 +53,27 @@ buttonEditProfile.addEventListener('click', () => {
 })
 
 profileAddButton.addEventListener('click', () => { 
-    addNewCardForm.reset();
     openPopup(popupAddNewCard);
 });
 
-function formSubmitProfile(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileDescription.textContent = jobInput.value;
     closePopup(popupProfileEdit);
 }
 
-profileForm.addEventListener('submit', formSubmitProfile);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 
-function formNewCard (evt) {
+function handleCardFormSubmit (evt) {
     evt.preventDefault();
     const newCard = {};
     newCard.name = cardNameInput.value;
     newCard.link = cardLinkInput.value;
 
     cardsContainer.prepend(createCard(newCard, deleteCard, likeCard, openImagePopup));
+    addNewCardForm.reset();
     closePopup(popupAddNewCard);
 }
 
-addNewCardForm.addEventListener('submit', formNewCard);
+addNewCardForm.addEventListener('submit', handleCardFormSubmit);
